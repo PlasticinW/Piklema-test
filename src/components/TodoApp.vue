@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <TodoForm />
-        <TodoList />
-    </div>
-</template>
-
-<script setup>
-    import TodoForm from './TodoForm.vue';
-    import TodoList from './TodoList.vue';
-</script>
-
-<style lang="scss" scoped>
-
-</style>
+    <todo-form />
+    <todo-list />
+  </template>
+  
+  <script lang="ts">
+  import { defineComponent } from "vue";
+  import TodoForm from "./TodoForm.vue";
+  import TodoList from "./TodoList.vue";
+  export default defineComponent({
+    components: { TodoForm, TodoList },
+    setup() {
+      return {};
+    },
+  });
+  </script>
