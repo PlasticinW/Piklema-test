@@ -27,6 +27,13 @@ export const useTodoListStore = defineStore("todoList", {
       }
       this.saveTodos();
     },
+    updateTodo(id: number, newItem: string) {
+      const todo = this.todoList.find((obj) => obj.id === id);
+      if (todo) {
+        todo.item = newItem;
+        this.saveTodos();
+      }
+    },
     saveTodos() {
       localStorage.setItem('todos', JSON.stringify(this.todoList));
     },
