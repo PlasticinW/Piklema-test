@@ -9,11 +9,16 @@
 </template>
 
 <script>
+import { onMounted } from "vue"
 import { useTodoListStore } from "../stores/useTodoListStore";
 import { storeToRefs } from 'pinia';
 export default {
     setup () {
         const store = useTodoListStore();
+
+        onMounted(() => {
+            store.loadTodos()
+        })
 
         const { todoList } = storeToRefs(store);
         const { toggleCompleted, deleteTodo } = store;
